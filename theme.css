@@ -7586,9 +7586,6 @@ body {
 /* ====== highlight ====== */
 body {
     --line-normal-opacity: 0.5;
-    /* ONX: 补定义 —— 上游缺失会导致规则静默失效 */
-    --line-active-bg: rgba(240, 159, 96, 0.07); /* 焦点模式当前行:主题色玻璃微光 */
-    --checkbox-icon: 65%; /* 勾选图标 mask 尺寸,对齐 Obsidian 默认渲染 */
 }
 
 .border-focus-mode .cm-lineWrapping>.cm-line.cm-active {
@@ -10697,6 +10694,19 @@ body.theme-dark:not(.is-mobile):has(>.app-container).background-underlying-CSS-d
   background-blend-mode: normal !important;
 }
 
+/* 未安装 Style Settings、或背景选项未启用时，也保留落日背景（发布版必需） */
+body.theme-dark:not(.is-mobile):has(>.app-container):not(.background-underlying-CSS-dark) {
+  background:
+    linear-gradient(180deg,
+      rgba(18, 12, 14, 0) 50%,
+      rgba(18, 12, 14, 0.12) 68%,
+      rgba(18, 12, 14, 0.30) 85%,
+      rgba(18, 12, 14, 0.44) 100%),
+    var(--background-underlying-CSS-dark) !important;
+  background-color: #241a26 !important;
+  background-blend-mode: normal !important;
+}
+
 /* ===========================================================================
    27. 层级减法：设置行回到「分组卡 + 细分割线」，引用块去卡片化
    =========================================================================== */
@@ -10766,4 +10776,13 @@ body {
   text-decoration-color: var(--color-red);
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
+}
+
+
+/* ==========================================================================
+   ONX 补定义 —— 上游缺失会导致规则静默失效,在此统一补齐
+   ========================================================================== */
+body {
+    --line-active-bg: rgba(240, 159, 96, 0.07); /* Border 焦点模式当前行:主题色玻璃微光 */
+    --checkbox-icon: 65%; /* 勾选图标 mask 尺寸,对齐 Obsidian 默认渲染 */
 }
