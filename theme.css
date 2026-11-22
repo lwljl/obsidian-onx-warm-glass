@@ -10358,9 +10358,9 @@ body {
 
 /* 15.3 标签栏：暖玻璃 + 橙色底边，和卡片同一材质 */
 .workspace-tab-header-container {
-  background: linear-gradient(180deg, rgba(22, 15, 18, 0.55), rgba(22, 15, 18, 0.18)) !important;
+  background: var(--glass-structure) !important;
   border-bottom: 1px solid var(--ui-line) !important;
-  backdrop-filter: blur(20px) saturate(1.05);
+  backdrop-filter: blur(18px) saturate(1.04);
 }
 
 .workspace-tab-header-inner {
@@ -10411,9 +10411,9 @@ body {
 
 /* 16.1 状态栏：底部一条轻玻璃 + 发丝边，item 圆角 hover */
 .status-bar {
-  background: linear-gradient(180deg, rgba(20, 14, 17, 0.18), rgba(20, 14, 17, 0.62)) !important;
+  background: var(--glass-structure) !important;
   border-top: 1px solid var(--ui-line) !important;
-  backdrop-filter: blur(18px) saturate(1.05);
+  backdrop-filter: blur(18px) saturate(1.04);
   color: var(--text-faint) !important;
 }
 
@@ -10788,14 +10788,21 @@ body {
 }
 
 /* ===========================================================================
-   29. 左侧栏 / 右侧栏 / 插件弹窗侧栏：补一层暖玻璃，亮背景下也清晰
+   29. 玻璃层次统一：结构层 / 内层面板 / 卡片 / 浮层
+   - 结构层（侧栏、标签栏、状态栏、ribbon）：同一块暖玻璃
+   - 内层面板（设置左栏、插件弹窗左栏）：比结构层再退一层
+   - 卡片 / 浮层沿用原有层级，不重复叠玻璃
    =========================================================================== */
+
+body {
+  --glass-structure: rgba(18, 12, 14, 0.56);
+  --glass-inner: rgba(12, 8, 11, 0.34);
+}
 
 .workspace-split.mod-left-split,
 .workspace-split.mod-right-split {
-  background:
-    linear-gradient(180deg, rgba(18, 12, 14, 0.58) 0%, rgba(18, 12, 14, 0.44) 100%) !important;
-  backdrop-filter: blur(22px) saturate(1.05);
+  background: var(--glass-structure) !important;
+  backdrop-filter: blur(18px) saturate(1.04);
 }
 
 .workspace-split.mod-left-split {
@@ -10806,17 +10813,18 @@ body {
   border-inline-start: 1px solid var(--ui-line) !important;
 }
 
-/* 插件自带的左右分栏弹窗（只压暗侧栏，不动内容区） */
-.modal .modal-sidebar {
-  background:
-    linear-gradient(180deg, rgba(18, 12, 14, 0.72) 0%, rgba(18, 12, 14, 0.50) 100%) !important;
-  backdrop-filter: blur(20px) saturate(1.02);
-  border-inline-end: 1px solid var(--ui-line) !important;
+.workspace-ribbon.mod-left,
+.workspace-ribbon.mod-right {
+  background: var(--glass-structure) !important;
+  backdrop-filter: blur(18px) saturate(1.04);
 }
 
-/* 设置弹窗左栏再压暗一点，避免笔记本亮度分布改变后文字发灰 */
-.modal.mod-settings .vertical-tab-header {
-  background:
-    linear-gradient(180deg, rgba(14, 10, 12, 0.62) 0%, rgba(14, 10, 12, 0.34) 100%) !important;
-  backdrop-filter: blur(18px) saturate(1.02);
+.modal.mod-settings .vertical-tab-header,
+.modal .modal-sidebar {
+  background: var(--glass-inner) !important;
+  backdrop-filter: blur(14px) saturate(1.02);
+}
+
+.modal .modal-sidebar {
+  border-inline-end: 1px solid var(--ui-line) !important;
 }
