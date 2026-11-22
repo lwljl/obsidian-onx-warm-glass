@@ -9175,7 +9175,7 @@ body:not(.is-mobile):not(.mod-macos):not(.mod-windows):not(.mod-linux) .app-cont
    ------------------------------------------------------------------------- */
 body {
   --cb-radius: 12px;                              /* 卡片圆角，与标题竖条 8px 同族 */
-  --cb-fill: rgba(30, 24, 26, 0.47);              /* 玻璃底色：暖褐，压住页面紫 */
+  --cb-fill: rgba(24, 18, 20, 0.68);              /* 内容卡统一底色：足够实，避免底部亮金透出 */
   --cb-hi: rgba(255, 244, 236, 0.075);            /* 顶部白色微光 */
   --cb-lo: rgba(255, 244, 236, 0.015);            /* 底部回落 */
   --cb-line: rgba(255, 244, 236, 0.10);           /* 1px 描边 */
@@ -9438,7 +9438,7 @@ body.theme-light .cm-s-obsidian .cm-line:not(.HyperMD-codeblock) span.cm-inline-
       - 内部只留横竖细线，最后一列/行不画线，避免和外框叠成双线
    ------------------------------------------------------------------------- */
 body {
-  --tb-fill: rgba(30, 24, 26, 0.42);
+  --tb-fill: var(--cb-fill);
   --tb-head: var(--ui-fill-soft);
   --tb-line: rgba(255, 244, 236, 0.075);
   --tb-line-strong: rgba(255, 244, 236, 0.10);
