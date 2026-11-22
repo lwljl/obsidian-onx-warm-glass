@@ -10830,3 +10830,27 @@ body.theme-dark:not(.is-mobile) {
   --background-underlying-CSS-blend-mode-dark: normal !important;
 }
 
+/* ===========================================================================
+   32. 左 / 右侧栏：悬浮圆角玻璃面板（笔记本上也能明显看出“玻璃层”）
+   =========================================================================== */
+
+body:not(.is-mobile) .workspace-split.mod-left-split,
+body:not(.is-mobile) .workspace-split.mod-right-split {
+  background: rgba(18, 12, 14, 0.46) !important;
+  backdrop-filter: blur(20px) saturate(1.06);
+  -webkit-backdrop-filter: blur(20px) saturate(1.06);
+  border: 1px solid var(--ui-line) !important;
+  border-radius: 14px;
+  margin: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -36px rgba(0, 0, 0, 0.90),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* 面板内的侧栏标签栏不再单独上色 */
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-tab-header-container,
+body:not(.is-mobile) .workspace-split.mod-right-split .workspace-tab-header-container {
+  background: transparent !important;
+  border-bottom: 1px solid var(--ui-line) !important;
+  backdrop-filter: none !important;
+}
