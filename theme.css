@@ -10358,9 +10358,9 @@ body {
 
 /* 15.3 标签栏：暖玻璃 + 橙色底边，和卡片同一材质 */
 .workspace-tab-header-container {
-  background: var(--glass-structure) !important;
+  background: linear-gradient(180deg, rgba(22, 15, 18, 0.55), rgba(22, 15, 18, 0.18)) !important;
   border-bottom: 1px solid var(--ui-line) !important;
-  backdrop-filter: blur(18px) saturate(1.04);
+  backdrop-filter: blur(20px) saturate(1.05);
 }
 
 .workspace-tab-header-inner {
@@ -10411,9 +10411,9 @@ body {
 
 /* 16.1 状态栏：底部一条轻玻璃 + 发丝边，item 圆角 hover */
 .status-bar {
-  background: var(--glass-structure) !important;
+  background: linear-gradient(180deg, rgba(20, 14, 17, 0.18), rgba(20, 14, 17, 0.62)) !important;
   border-top: 1px solid var(--ui-line) !important;
-  backdrop-filter: blur(18px) saturate(1.04);
+  backdrop-filter: blur(18px) saturate(1.05);
   color: var(--text-faint) !important;
 }
 
@@ -10788,43 +10788,27 @@ body {
 }
 
 /* ===========================================================================
-   29. 玻璃层次统一：结构层 / 内层面板 / 卡片 / 浮层
-   - 结构层（侧栏、标签栏、状态栏、ribbon）：同一块暖玻璃
-   - 内层面板（设置左栏、插件弹窗左栏）：比结构层再退一层
-   - 卡片 / 浮层沿用原有层级，不重复叠玻璃
+   30. 侧栏 / ribbon 回归透明：整个窗口共用同一张落日背景，不再出现色块接缝
    =========================================================================== */
 
-body {
-  --glass-structure: rgba(18, 12, 14, 0.56);
-  --glass-inner: rgba(12, 8, 11, 0.34);
+body:not(.is-mobile) .workspace-split.mod-left-split,
+body:not(.is-mobile) .workspace-split.mod-right-split,
+body:not(.is-mobile) .workspace-ribbon.mod-left,
+body:not(.is-mobile) .workspace-ribbon.mod-right {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
 }
 
-.workspace-split.mod-left-split,
-.workspace-split.mod-right-split {
-  background: var(--glass-structure) !important;
-  backdrop-filter: blur(18px) saturate(1.04);
-}
-
-.workspace-split.mod-left-split {
-  border-inline-end: 1px solid var(--ui-line) !important;
-}
-
-.workspace-split.mod-right-split {
-  border-inline-start: 1px solid var(--ui-line) !important;
-}
-
-.workspace-ribbon.mod-left,
-.workspace-ribbon.mod-right {
-  background: var(--glass-structure) !important;
-  backdrop-filter: blur(18px) saturate(1.04);
-}
-
-.modal.mod-settings .vertical-tab-header,
-.modal .modal-sidebar {
-  background: var(--glass-inner) !important;
-  backdrop-filter: blur(14px) saturate(1.02);
-}
-
-.modal .modal-sidebar {
-  border-inline-end: 1px solid var(--ui-line) !important;
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-tabs,
+body:not(.is-mobile) .workspace-split.mod-right-split .workspace-tabs,
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-leaf,
+body:not(.is-mobile) .workspace-split.mod-right-split .workspace-leaf,
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-leaf-content,
+body:not(.is-mobile) .workspace-split.mod-right-split .workspace-leaf-content,
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-leaf-content .view-content,
+body:not(.is-mobile) .workspace-split.mod-right-split .workspace-leaf-content .view-content {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
 }
