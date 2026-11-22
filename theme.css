@@ -9175,7 +9175,7 @@ body:not(.is-mobile):not(.mod-macos):not(.mod-windows):not(.mod-linux) .app-cont
    ------------------------------------------------------------------------- */
 body {
   --cb-radius: 12px;                              /* 卡片圆角，与标题竖条 8px 同族 */
-  --cb-fill: rgba(24, 18, 20, 0.68);              /* 内容卡统一底色：足够实，避免底部亮金透出 */
+  --cb-fill: rgba(24, 18, 20, 0.52);              /* 内容卡统一底色：足够实，避免底部亮金透出 */
   --cb-hi: rgba(255, 244, 236, 0.075);            /* 顶部白色微光 */
   --cb-lo: rgba(255, 244, 236, 0.015);            /* 底部回落 */
   --cb-line: rgba(255, 244, 236, 0.10);           /* 1px 描边 */
@@ -9472,7 +9472,9 @@ body.theme-light {
     var(--tb-fill);
   border: 1px solid var(--cb-line);
   border-radius: var(--cb-radius);
-  box-shadow: var(--cb-shadow);
+  box-shadow: var(--cb-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px) saturate(1.08);
+  -webkit-backdrop-filter: blur(18px) saturate(1.08);
   overflow: hidden;
   margin-block: 1.25em;
 }
@@ -9580,6 +9582,8 @@ body.theme-dark:not(.is-mobile):has(>.app-container).background-underlying-CSS-d
   border: 1px solid var(--cb-line);
   border-radius: var(--cb-radius);
   box-shadow: var(--cb-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px) saturate(1.08);
+  -webkit-backdrop-filter: blur(18px) saturate(1.08);
   overflow-x: auto;
 }
 
@@ -9598,6 +9602,8 @@ body.theme-dark:not(.is-mobile):has(>.app-container).background-underlying-CSS-d
   border: 1px solid var(--cb-line);
   border-radius: var(--cb-radius);
   box-shadow: var(--cb-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px) saturate(1.08);
+  -webkit-backdrop-filter: blur(18px) saturate(1.08);
   overflow-x: auto;
   text-align: center;
 }
