@@ -9175,7 +9175,7 @@ body:not(.is-mobile):not(.mod-macos):not(.mod-windows):not(.mod-linux) .app-cont
    ------------------------------------------------------------------------- */
 body {
   --cb-radius: 12px;                              /* 卡片圆角，与标题竖条 8px 同族 */
-  --cb-fill: rgba(24, 18, 20, 0.52);              /* 内容卡统一底色：足够实，避免底部亮金透出 */
+  --cb-fill: rgba(24, 18, 20, 0.46);              /* 内容卡统一底色：足够实，避免底部亮金透出 */
   --cb-hi: rgba(255, 244, 236, 0.075);            /* 顶部白色微光 */
   --cb-lo: rgba(255, 244, 236, 0.015);            /* 底部回落 */
   --cb-line: rgba(255, 244, 236, 0.10);           /* 1px 描边 */
@@ -10817,4 +10817,14 @@ body:not(.is-mobile) .workspace-split.mod-right-split .workspace-leaf-content .v
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
+}
+
+/* ===========================================================================
+   31. 全局磨砂：整个窗口是一块玻璃，所有面板共享同一层背景
+   =========================================================================== */
+
+body:not(.is-mobile) .app-container {
+  background: rgba(18, 12, 14, 0.18) !important;
+  backdrop-filter: blur(20px) saturate(1.06);
+  -webkit-backdrop-filter: blur(20px) saturate(1.06);
 }
